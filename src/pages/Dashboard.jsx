@@ -29,8 +29,8 @@ import {
   Notifications as NotificationsIcon,
   PersonAdd as PersonAddIcon,
 } from '@mui/icons-material';
-import { collection, getDocs, query, where, orderBy, limit } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../Firebase/config';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 

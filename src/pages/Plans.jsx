@@ -31,7 +31,7 @@ import {
   CheckCircle as CheckCircleIcon,
 } from '@mui/icons-material';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, serverTimestamp, query, where, writeBatch } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { db } from '../Firebase/config';
 import { toast } from 'react-toastify';
 
 function PlansManagement() {

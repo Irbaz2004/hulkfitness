@@ -46,7 +46,7 @@ import {
   FilterList as FilterIcon,
 } from '@mui/icons-material';
 import { collection, getDocs, doc, deleteDoc, query, where, orderBy } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { db } from '../Firebase/config';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 

@@ -23,7 +23,7 @@ import {
   CurrencyRupee as MoneyIcon,
 } from '@mui/icons-material';
 import { collection, addDoc, getDocs, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { db } from '../Firebase/config';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 

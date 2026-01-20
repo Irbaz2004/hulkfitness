@@ -53,7 +53,7 @@ import {
   ArrowForward as ArrowForwardIcon,
 } from '@mui/icons-material';
 import { collection, getDocs, query, where, updateDoc, doc, serverTimestamp, addDoc, orderBy } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { db } from '../Firebase/config';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router-dom';
 
