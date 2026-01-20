@@ -34,6 +34,8 @@ import {
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useAuth } from './AuthContext'; // Add this import
+
 
 const drawerWidth = 240;
 
@@ -123,6 +125,8 @@ function Layout({ children }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+    const { logout } = useAuth(); // Get logout function
+
   
   // Media queries for responsive design
   const isMobile = useMediaQuery('(max-width: 899px)');
@@ -140,9 +144,14 @@ function Layout({ children }) {
     setAnchorEl(null);
   };
 
-  const handleLogout = () => {
-    handleProfileMenuClose();
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      await logout(); // Call logout from AuthContext
+      handleProfileMenuClose();
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
   };
 
   // Get active menu item for mobile bottom navigation
@@ -190,7 +199,7 @@ function Layout({ children }) {
                 my: 0.5,
                 borderRadius: 1,
                 '&.Mui-selected': {
-                  bgcolor: 'rgba(0, 180, 216, 0.16)',
+                  bgcolor: 'rgba(0, 8, 9, 0.16)',
                   borderRight: '3px solid',
                   borderColor: 'primary.main',
                   '& .MuiListItemIcon-root': {
@@ -402,6 +411,8 @@ function Layout({ children }) {
                 bgcolor: 'transparent',
                 height: '100%',
                 padding: '6px 0',
+                                      fontSize: '0.60rem',
+
                 '& .MuiBottomNavigationAction-root': {
                   minWidth: '50px',
                   padding: '8px 0 6px',
@@ -412,7 +423,7 @@ function Layout({ children }) {
                     paddingTop: '10px',
                     transform: 'translateY(-4px)',
                     '& .MuiBottomNavigationAction-label': {
-                      fontSize: '0.75rem',
+                      fontSize: '0.60rem',
                       fontWeight: 600,
                     },
                   },
@@ -434,7 +445,7 @@ function Layout({ children }) {
                       mt: 0.5,
                       transition: 'all 0.2s ease',
                       '&.Mui-selected': {
-                        fontSize: '0.75rem',
+                        fontSize: '0.60rem',
                         fontWeight: 600,
                       }
                     },
